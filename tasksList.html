@@ -27,7 +27,7 @@
           <div class="row">
             <!-- card de tarefa que repete para cada item do array -->
 
-            <p class="btn-large waves-effect waves-light orange darken-3">Tarefas</p>
+            <h4>Tarefas</h4>
 
             <div v-for="tarefa in tasks" class="card horizontal">
               <div class="card-stacked">
@@ -36,7 +36,7 @@
                   <span class="projeto">{{ tarefa.project }}</span>
                 </div>
                 <div class="card-action">
-                  <a href="tasksNew.html">This is a link</a>
+                  <button href="tasksNew.html">Editar</button>
                 </div>
               </div>
             </div>
