@@ -5,19 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
     <title>Todo List</title>
 
-    <!-- Materialize CSS CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+  <!-- Materialize CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
 
-    <!-- Fontawesome 6 CND-->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+  <!-- Fontawesome 6 CND-->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 
-    <link href="style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <script src="script.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+    
   </head>
   <body>
     <div id="app">
@@ -34,29 +38,28 @@
               <div class="card horizontal">
                 <div class="card-stacked">
                   <div class="card-content">
-                    <h2>New Task</h2>
+                    <h2>Nota Tarefa</h2>
                     <form action="">
                       <div class="input-field col s12">
-                        <input placeholder="Title" id="title" type="text" class="validate" required />
-                        <label for="title">Title</label>
+                        <input placeholder="Titulo" id="title" type="text" class="validate" required v-model="task.title">
+               
                       </div>
 
-                      <div class="input-field col s12">
-                        <select id="project">
-                          <option value="" >Choose your option</option>
-                          <option value="Estudos">Estudos</option>
-                          <option value="Financeiro">Financeiro</option>
-                          <option value="Trabalho">Trabalho</option>
+                      <div >
+                        <label for="instrumento"> Selecione um projeto</label>
+                        <select id="project" class="input" v-model="task.project">
+                          <option >Estudos</option>
+                          <option >Financeiro</option>
+                          <option >Trabalho</option>
                         </select>
-                        <label for="project">Pick a Project</label>
                       </div>
 
                       <div class="input-field col s12">
-                        <input type="text" class="datepicker" id="dueTo" />
-                        <label for="dueTo">Date due to</label>
+                        <input type="date" class="datepicker" id="dueTo" v-model="task.dueTo">
+
                       </div>
 
-                      <a class="waves-effect waves-light btn-large" id="btnSave" @click="created()">Save</a>
+                      <a class="waves-effect waves-light btn-large" id="btnSave" @click.prevent.stop="postTasks">Save</a>
                     </form>
                   </div>
                 </div>
@@ -72,11 +75,7 @@
         </div>
       </footer>
 
-      <!-- Materialize JavaScript CDN -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-      <!-- Arquivo JS -->
-      <script src="script.js"></script>
+      
 
     </div>  
   </body>

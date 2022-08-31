@@ -2,7 +2,8 @@ app = new Vue ({
     el : '#app',
     data: {
         message: 'Ola Vue',
-        tasks:[], 
+        tasks:[],
+        task: {},
     },
     methods:{
         getTasks() {
@@ -13,12 +14,26 @@ app = new Vue ({
                 this.tasks = tarefasJson
               })
           },
+        
+        postTasks(){
+          const data = this.task
+          const dataJson = JSON.stringify(data)
 
+          fetch("http://localhost:3000/tasks",
+          {headers: {
+            'Content-Type': 'application/json'
+          },
+          method: 'POST',
+          body: dataJson
+        })
+
+        }
     },
     created(){
        console.log('Funcionou o criar')
        this.getTasks()
     },
     })
+
 
 
