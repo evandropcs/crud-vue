@@ -7,14 +7,24 @@ app = new Vue ({
     },
     methods:{
         getTasks() {
-            fetch("http://localhost:3000/tasks")
-              .then((response) => response.json())
-              .then((tarefasJson) => {
-                console.log(tarefasJson)
-                this.tasks = tarefasJson
-              })
+          fetch("http://localhost:3000/tasks")
+            .then((response) => response.json())
+            .then((tarefasJson) => {
+              console.log(tarefasJson)
+              this.tasks = tarefasJson
+            })
           },
+        editTasks(id){
+          fetch(`http://localhost:3000/tasks/${id}`).then(response => response.json()).then(resp => {
+            console.log(resp)
+            this.task.id = resp.id
+            this.task.title = resp.title
+            this.task.dueTo = resp.dueTo
+            this.task.project = resp.project
+          })
+
         
+        },
         postTasks(){
           const data = this.task
           const dataJson = JSON.stringify(data)
@@ -26,7 +36,6 @@ app = new Vue ({
           method: 'POST',
           body: dataJson
         })
-
         }
     },
     created(){

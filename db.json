@@ -3,19 +3,19 @@
     {
       "id": 1,
       "title": "Estudar Flexbox",
-      "dueTo": "2022-05-01T12:00:00.000Z",
+      "dueTo": "2022-05-01",
       "project": "Estudos"
     },
     {
       "id": 2,
       "title": "Estudar Float",
-      "dueTo": "2022-05-01T12:00:00.000Z",
+      "dueTo": "2022-05-01",
       "project": "Estudos"
     },
     {
       "id": 3,
       "title": "Estudar VUE",
-      "dueTo": "2022-05-01T12:00:00.000Z",
+      "dueTo": "2022-05-01",
       "project": "Estudos"
     },
     {
@@ -23,6 +23,23 @@
       "project": "Trabalho",
       "dueTo": "2022-09-02",
       "id": 4
+    },
+    {
+      "title": "TESTE",
+      "project": "Estudos",
+      "dueTo": "2022-09-15",
+      "id": 5
+    },
+    {
+      "title": "adwadaw",
+      "dueTo": "2022-09-13",
+      "id": 6
+    },
+    {
+      "project": "Financeiro",
+      "title": "dadaw",
+      "dueTo": "2022-09-14",
+      "id": 7
     }
   ]
 }
