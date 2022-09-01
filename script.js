@@ -3,7 +3,14 @@ app = new Vue ({
     data: {
         message: 'Ola Vue',
         tasks:[],
-        task: {},
+        task:{
+          id: null,
+          title: null,
+          dueTo: null,
+          project: null,
+        },
+        editEnabled: false,
+        listEnabled: true,
     },
     methods:{
         getTasks() {
@@ -22,8 +29,11 @@ app = new Vue ({
             this.task.dueTo = resp.dueTo
             this.task.project = resp.project
           })
+          console.log(this.editEnabled)
+          this.editEnabled ? this.editEnabled = false : this.editEnabled = true
+          console.log(this.editEnabled)
+          this.listEnabled ? this.listEnabled = false : this.listEnabled = true
 
-        
         },
         postTasks(){
           const data = this.task
@@ -36,7 +46,18 @@ app = new Vue ({
           method: 'POST',
           body: dataJson
         })
-        }
+        },
+        updateTasks(){
+          const data = this.task
+    
+          const dataJson = JSON.stringify(data);
+    
+          fetch(`http://localhost:3000/tasks/${this.task.id}`, {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: dataJson,
+          });
+        },
     },
     created(){
        console.log('Funcionou o criar')

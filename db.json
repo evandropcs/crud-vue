@@ -2,7 +2,7 @@
   "tasks": [
     {
       "id": 1,
-      "title": "Estudar Flexbox",
+      "title": "Estudar Flexbox adawdwadwadwa",
       "dueTo": "2022-05-01",
       "project": "Estudos"
     },
@@ -40,6 +40,18 @@
       "title": "dadaw",
       "dueTo": "2022-09-14",
       "id": 7
+    },
+    {
+      "title": "wdwadwadawd",
+      "dueTo": "2022-09-23",
+      "project": "Financeiro",
+      "id": 8
+    },
+    {
+      "id": 9,
+      "title": "macaiba",
+      "dueTo": "2022-09-21",
+      "project": "Estudos"
     }
   ]
 }
