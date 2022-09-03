@@ -38,9 +38,10 @@
               <div class="card horizontal">
                 <div class="card-stacked">
                   <div class="card-content">
-                    <h2>Nota Tarefa</h2>
+                    <h4>Nova Tarefa</h4>
                     <form action="">
                       <div class="input-field col s12">
+                        
                         <input placeholder="Titulo" id="title" type="text" class="validate" required v-model="task.title">
                
                       </div>
@@ -48,9 +49,9 @@
                       <div >
                         <label for="instrumento"> Selecione um projeto</label>
                         <select id="project" class="input" v-model="task.project">
-                          <option >Estudos</option>
-                          <option >Financeiro</option>
                           <option >Trabalho</option>
+                          <option >Estudo</option>
+                          <option >Viagem</option>
                         </select>
                       </div>
 
@@ -58,11 +59,10 @@
                         <input type="date" class="datepicker" id="dueTo" v-model="task.dueTo">
 
                       </div>
-
-                      <a class="waves-effect waves-light btn-large" id="btnSave" @click.prevent.stop="postTasks">Save</a>
-
-                      <a class="waves-effect waves-light btn-large" id="btnSave" href="tasksList.html">VER 
-                        TAREFAS</a>
+                     
+                      <a class="btn-floating btn-large waves-effect waves-light light-blue" @click.prevent.stop="postTasks"><i class="fa-sharp fa-solid fa-check"></i></a>
+                 
+                      <a href="index.html" class="btn-floating btn-large waves-effect waves-light orange"><i class="fa-solid fa-list-check"></i></a>
 
                     </form>
                   </div>
@@ -73,13 +73,13 @@
         </div>
       </div>
 
+  
       <footer class="page-footer orange darken-3">
         <div class="footer-copyright">
-          <div class="container">© 2022 Frontend</div>
+          <div class="container center">© 2022 Frontend</div>
         </div>
       </footer>
-
-      
+    </div>
 
     </div>  
   </body>

@@ -58,6 +58,11 @@ app = new Vue ({
             body: dataJson,
           });
         },
+        deleteTasks(id){
+          fetch(`http://localhost:3000/tasks/${id}`, {
+            method: "DELETE",
+          });
+        },
     },
     created(){
        console.log('Funcionou o criar')

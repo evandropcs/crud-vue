@@ -12,7 +12,7 @@
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-
+  <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
@@ -23,23 +23,99 @@
 
       <div class="section no-pad-bot orange lighten-5" id="index-banner">
         <div class="container">
-          <br /><br />
           <h1 class="header center orange-text text-darken-3"><i class="fa-solid fa-list-check"></i></h1>
           <h1 class="header center orange-text text-darken-3">Lista de tarefas</h1>
-          <div class="row center">
+          </div>
+    <nav class="orange darken-2">
+        <div class="nav-wrapper"></div>
+      </nav>
+
+      <div class="container" >
+        <div class="section">
+          <!--   Icon Section   -->
+          <div class="row">
+            <!-- card de tarefa que repete para cada item do array -->
+    
+        <div v-show="listEnabled">
+            <h6>Nova Tarefa</h6>
+
+            <div class="add">
+              <a class="btn-floating btn-large waves-effect waves-light orange"
+                href="tasksNew.html"><i class="fa-solid fa-plus"></i></a>
+            </div>
+
+            <!-- LOOP TAREFAS -->
+
+            <div v-for="tarefa in tasks" class="card horizontal">
+              <div class="card-stacked">
+                <div class="card-content">
+                  <label for="">Tarefa</label>
+                  <p>{{ tarefa.title }}</p>
+                  <label for="">Projeto</label>
+                  <p>{{ tarefa.project }}</p>
+                  <label for="">Data</label>
+                  <p>{{ tarefa.dueTo }}</p>
+                </div>
+                <div class="card-action">
+                  
+                  <a class="btn-floating btn-large waves-effect waves-light green" id="btnSave" @click="editTasks(tarefa.id)"><i class="fa-regular fa-pen-to-square"></i></a>
+                  <a class="btn-floating btn-large waves-effect waves-light red" id="btnSave" @click="deleteTasks(tarefa.id)">
+                    <i class="fa-regular fa-trash-can"></i> </a>
+                </div>
+
+
+              </div>
+            </div>
+            <!-- FIM LOOP TAREFAS -->
+        </div>
 
           </div>
-          <div class="row center">
-            <a href="tasksList.html" class="btn-large waves-effect waves-light orange darken-3">Listar Tarefas</a>
-          </div>
-          <br /><br />
+        </div>
+      </div>
+
+      <!-- EDITAR -->
+
+      <div class="container" >
+        <div class="section">
+          <!--   Icon Section   -->
+          <div class="row">
+
+      <div v-show="editEnabled" >
+        <p>
+          <label for="">Tarefa</label>
+          <input type="text" placeholder="Tarefa" v-model="task.title" value="task.title">
+        </p>
+
+      <p>
+        <label for="">Projeto</label>
+        <input type="text" placeholder="Tarefa" v-model="task.project" value="task.project">
+      </p>
+
+      <p>
+        <label for="">Data</label>
+        <input type="text" placeholder="Tarefa" v-model="task.dueTo" value="task.dueTo">
+      </p>
+
+      <a class="btn-floating btn-large waves-effect waves-light light-blue" @click="updateTasks()"><i class="fa-sharp fa-solid fa-check"></i></a>
+
+      </div>
+
+        </div>
+      </div>
+    </div>
+
+
+      <!-- FIM EDITAR -->
+
+
+
         </div>
       </div>
 
   
       <footer class="page-footer orange darken-3">
         <div class="footer-copyright">
-          <div class="container">© 2022 Frontend</div>
+          <div class="container center">© 2022 Frontend</div>
         </div>
       </footer>
     </div>
