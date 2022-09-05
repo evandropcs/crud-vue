@@ -12,14 +12,17 @@ app = new Vue ({
         editEnabled: false,
         listEnabled: true,
         newEnabled: false,
+        load: false,
     },
     methods:{
         getTasks() {
+          this.load = true
           fetch("http://localhost:3000/tasks")
             .then((response) => response.json())
             .then((tarefasJson) => {
               console.log(tarefasJson)
               this.tasks = tarefasJson
+              this.load = false
             })
           },
         editTasks(id){
