@@ -32,7 +32,6 @@ app = new Vue ({
           })
           this.editEnabled ? this.editEnabled = false : this.editEnabled = true
           this.listEnabled ? this.listEnabled = false : this.listEnabled = true
-
         },
         postTasks(){
           const data = this.task
@@ -61,6 +60,7 @@ app = new Vue ({
           fetch(`http://localhost:3000/tasks/${id}`, {
             method: "DELETE",
           });
+          this.getTasks()
         },
         salvar(){
           this.newEnabled ? this.newEnabled = false : this.newEnabled = true
