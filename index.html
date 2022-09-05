@@ -36,12 +36,16 @@
           <div class="row">
             <!-- card de tarefa que repete para cada item do array -->
     
-        <div v-show="listEnabled">
+        <div v-show="listEnabled && !newEnabled">
             <h6>Nova Tarefa</h6>
 
             <div class="add">
+              <!-- <a class="btn-floating btn-large waves-effect waves-light orange"
+                href="tasksNew.html"><i class="fa-solid fa-plus"></i></a> -->
+
               <a class="btn-floating btn-large waves-effect waves-light orange"
-                href="tasksNew.html"><i class="fa-solid fa-plus"></i></a>
+              @click="salvar()"><i class="fa-solid fa-plus"></i></a>
+
             </div>
 
             <!-- LOOP TAREFAS -->
@@ -77,10 +81,10 @@
 
       <div class="container" >
         <div class="section">
-          <!--   Icon Section   -->
+            <!-- Icon Section   -->
           <div class="row">
 
-      <div v-show="editEnabled" >
+      <div v-show="editEnabled && !newEnabled" >
         <p>
           <label for="">Tarefa</label>
           <input type="text" placeholder="Tarefa" v-model="task.title" value="task.title">
@@ -106,13 +110,50 @@
 
 
       <!-- FIM EDITAR -->
+      
 
+<!-- Nova Tarefa -->
+<div class="card horizontal" v-show="newEnabled">
+  <div class="card-stacked">
+    <div class="card-content">
+      <h4>Nova Tarefa</h4>
+      <form action="">
+        <div class="input-field col s12">
+          
+          <input placeholder="Titulo" id="title" type="text" class="validate" required v-model="task.title">
+ 
+        </div>
+
+        <div >
+          <label for="instrumento"> Selecione um projeto</label>
+          <select id="project" class="input" v-model="task.project">
+            <option >Trabalho</option>
+            <option >Estudo</option>
+            <option >Viagem</option>
+          </select>
+        </div>
+
+        <div class="input-field col s12">
+          <input type="date" class="datepicker" id="dueTo" v-model="task.dueTo">
+
+        </div>
+       
+        <a class="btn-floating btn-large waves-effect waves-light light-blue" @click.prevent.stop="postTasks"><i class="fa-sharp fa-solid fa-check"></i></a>
+   
+        <a href="index.html" class="btn-floating btn-large waves-effect waves-light orange"><i class="fa-solid fa-list-check"></i></a>
+
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Nova Tarefa -->
+      
 
 
         </div>
       </div>
 
-  
+    <!-- FOOTER -->
       <footer class="page-footer orange darken-3">
         <div class="footer-copyright">
           <div class="container center">© 2022 Frontend</div>

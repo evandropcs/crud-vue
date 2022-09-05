@@ -11,6 +11,7 @@ app = new Vue ({
         },
         editEnabled: false,
         listEnabled: true,
+        newEnabled: false,
     },
     methods:{
         getTasks() {
@@ -29,9 +30,7 @@ app = new Vue ({
             this.task.dueTo = resp.dueTo
             this.task.project = resp.project
           })
-          console.log(this.editEnabled)
           this.editEnabled ? this.editEnabled = false : this.editEnabled = true
-          console.log(this.editEnabled)
           this.listEnabled ? this.listEnabled = false : this.listEnabled = true
 
         },
@@ -62,6 +61,9 @@ app = new Vue ({
           fetch(`http://localhost:3000/tasks/${id}`, {
             method: "DELETE",
           });
+        },
+        salvar(){
+          this.newEnabled ? this.newEnabled = false : this.newEnabled = true
         },
     },
     created(){
