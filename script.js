@@ -1,7 +1,6 @@
 app = new Vue ({
     el : '#app',
     data: {
-        message: 'Ola Vue',
         tasks:[],
         task:{
           id: null,
@@ -13,6 +12,7 @@ app = new Vue ({
         listEnabled: true,
         newEnabled: false,
         load: false,
+        textFilter: "",
     },
     methods:{
         getTasks() {
@@ -63,7 +63,6 @@ app = new Vue ({
           fetch(`http://localhost:3000/tasks/${id}`, {
             method: "DELETE",
           });
-          this.getTasks()
         },
         salvar(){
           this.newEnabled ? this.newEnabled = false : this.newEnabled = true
@@ -73,7 +72,13 @@ app = new Vue ({
        console.log('Funcionou o criar')
        this.getTasks()
     },
-    })
+    computed:{
+    filterTasks(){
+      return this.tasks.filter((el) =>
+        el.title.toLowerCase().includes(this.textFilter.toLowerCase()))
+    },
+  },
+  })
 
 
 
