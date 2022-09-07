@@ -27,7 +27,7 @@
         <div class="nav-wrapper"></div>
 
         <form>
-          <div class="input-field">
+          <div class="input-field" v-show="!editEnabled && !newEnabled">
             <input id="search" type="search" required v-model="textFilter" placeholder="Pesquisar tarefa...">
             <label class="label-icon" for="search"><i class="fa-solid fa-magnifying-glass"></i></label>
           </div>
@@ -37,9 +37,9 @@
       <div class="section no-pad-bot orange lighten-5" id="index-banner">
 
 <!-- LOADING --> 
-<div class="progress orange" v-show="load">
-  <div class="indeterminate white "></div>
-</div>
+    <div class="progress orange" v-show="load">
+      <div class="indeterminate white "></div>
+   </div>
 <!-- LOADING -->
 
         <div class="container">
@@ -63,7 +63,7 @@
 
             </div>
 
-            <!-- LISTAR TAREFAS -->
+              <!-- LISTAR TAREFAS -->
 
             <div v-for="tarefa in filterTasks" class="card horizontal">
               <div class="card-stacked">
@@ -83,18 +83,14 @@
 
               </div>
             </div>
-            <!-- FIM LOOP TAREFAS -->
-        </div>
-
           </div>
         </div>
-      </div>
+      </div>  
+    </div>
+             <!-- FIM LOOP TAREFAS -->
+
 
       <!-- EDITAR -->
-
-      <div class="card horizontal">
-        <div class="card-stacked">
-          <div class="card-content">
 
       <div v-show="editEnabled && !newEnabled" >
         <p>
@@ -117,10 +113,6 @@
       </p>
 
       <a class="btn-floating btn-large waves-effect waves-light light-blue" href="index.html" @click="updateTasks()"><i class="fa-sharp fa-solid fa-check"></i></a>
-
-      </div>
-        </div>
-      </div>
     </div>
       <!-- FIM EDITAR -->
       
@@ -155,9 +147,6 @@
 </div>
 
 <!-- Nova Tarefa -->
-      
-        </div>
-      </div>
 
     <!-- FOOTER -->
       <footer class="page-footer orange darken-3">
@@ -171,6 +160,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <!-- Arquivo JS -->
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>
